@@ -1,11 +1,11 @@
-
+<html>
   <head>
     <!--Load the AJAX API-->
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
 
       // Load the Visualization API and the corechart package.
-      google.charts.load('current', {'packages':['corechart']});
+      google.charts.load('current', {'packages':['line']});
 
       // Set a callback to run when the Google Visualization API is loaded.
       google.charts.setOnLoadCallback(drawChart);
@@ -15,7 +15,7 @@
       // draws it.
 
       function drawChart() {
-        var URL = 'https://docs.google.com/spreadsheets/d/15_odpJgyjLnFxPoSVHyS-oG65HbpGjgquTT9xpgIOUI/edit#gid=0';
+        var URL = 'https://docs.google.com/spreadsheets/d/1MA39x5TnQMRk-c6TZqDLhOaj-2MwkNmwp_iSzJ6nh1U/edit?ts=5827bb67#gid=195919195';
         var query = new google.visualization.Query(URL);
         query.send(handleQueryResponse)
       }
@@ -25,9 +25,12 @@
 
         // Set chart options
         var options = {'title':'Mood of Obama',
-                       'width':800,
-                       'height':600};
-        var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+                       'width':1200,
+                       'height':600,
+                       'tooltip': {isHtml: true}
+                       };
+        var chart = new google.charts.Line(document.getElementById('chart_div'));
+
         chart.draw(data, options);
       }
 
@@ -35,6 +38,7 @@
   </head>
 
   <body>
+    <!--Div that will hold the pie chart-->
     <div id="chart_div"></div>
   </body>
-  
+</html>
